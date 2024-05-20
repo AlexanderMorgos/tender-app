@@ -27,6 +27,7 @@ const Tenders: React.FC<TendersProps> = appObserver(() => {
   const [page, setPage] = React.useState(0);
   const [pageSize, setPageSize] = React.useState(10);
   const [loading, setLoading] = React.useState(true);
+  const [searchQuery, setSearchQuery] = React.useState('');
 
   const initialize = useCallback(async() => {
     try {
@@ -62,6 +63,11 @@ const Tenders: React.FC<TendersProps> = appObserver(() => {
       },
       callback,
     );
+  }, []);
+
+  const handleSearch = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    $tenderViewModel.getList(event.target.value);
+    setSearchQuery(event.target.value);
   }, []);
 
   useEffect(() => {
@@ -115,6 +121,8 @@ const Tenders: React.FC<TendersProps> = appObserver(() => {
         <TextField 
           size="small"
           placeholder='Search...'
+          value={searchQuery}
+          onChange={handleSearch}
         />
         <Button 
           text="Create"

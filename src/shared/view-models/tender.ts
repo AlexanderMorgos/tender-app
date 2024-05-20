@@ -24,9 +24,9 @@ export class TenderViewModel implements ITenderViewModel {
     this._list = this.list.filter((item) => item.id !== id);
   };
 
-  getList: ITenderViewModel['getList'] = async () => {
+  getList: ITenderViewModel['getList'] = async (title) => {
     const data = await this.$tenderService.getList();
 
-    this._list = data.map((item) => item.asJson);
+    this._list = data.map((item) => item.asJson).filter((item) => title ? item.title.toLowerCase().includes(title.toLowerCase()) : true);
   }
 }
