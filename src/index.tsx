@@ -8,6 +8,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { BrowserRouter } from 'react-router-dom';
 
 import { initializeStateManagement } from '@core/state-management/setup';
+import { Confirmation } from '@shared/components/confirmation';
+import { Notification } from '@shared/components/notification';
 
 const App = React.lazy(() => import('./app'));
 
@@ -20,6 +22,8 @@ async function initializeApp() {
     root.render(
       <BrowserRouter>
           <CssBaseline />
+          <Confirmation />
+          <Notification />
           <App />
       </BrowserRouter>
     );

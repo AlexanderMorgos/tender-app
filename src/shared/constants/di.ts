@@ -7,6 +7,6 @@ function createTokens<Key extends string>(x: Record<Key, DiEntityIdentifier>) {
 export const DI_TOKENS = createTokens({
   storageService: 'storage-service',
   authViewModel: 'auth-view-model',
-  forecastService: 'forecast-service',
-  forecastViewModel: 'forecast-view-model'
+  tenderService: 'tender-service',
+  tenderViewModel: 'tender-view-model'
 });

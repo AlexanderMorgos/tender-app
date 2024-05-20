@@ -4,11 +4,6 @@ export const useStyles = appMakeStyles()(() => ({
   root: {
     maxWidth: '100%',
     fontFamily: 'inherit',
-    backgroundColor: '#0b7',
-
-    '&:hover': {
-      backgroundColor: '#0b7'
-    }
   },
   textWrapper: {
     width: '100%',
